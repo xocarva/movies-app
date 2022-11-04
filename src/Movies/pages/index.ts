@@ -1,3 +1,3 @@
 
 export * from './FavsPage';
-export * from './MoviesPage';
+export * from './MoviesSearchPage';
