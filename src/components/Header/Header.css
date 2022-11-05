@@ -1,0 +1,17 @@
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color:#c24848;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header a h1 {
+  font-size: 3.5rem;
+  color: white;
+}

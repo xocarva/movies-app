@@ -24,6 +24,11 @@
   color: whitesmoke;
 }
 
+.movie-card .card-text-container span {
+  padding: 0 5px;
+  text-align: center;
+}
+
 .fav-button {
   position: absolute;
   top: 10px;

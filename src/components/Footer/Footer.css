@@ -1,0 +1,24 @@
+
+footer {
+  color: white;
+  background-color: #c24848;
+  padding: 1.5rem;
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer span a {
+  color: white;
+}
+
+

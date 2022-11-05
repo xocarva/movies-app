@@ -1,5 +1,8 @@
 .grid {
   display: flex;
+  justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0 5rem;
 }

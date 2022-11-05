@@ -1,0 +1,20 @@
+
+.search-bar {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.search-bar .search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #c24848;
+}
+
+.search-bar .search-input:focus {
+  outline: none;
+  border: 2px solid #c24848;
+  box-shadow: 0 0 5px #c24848;
+}
