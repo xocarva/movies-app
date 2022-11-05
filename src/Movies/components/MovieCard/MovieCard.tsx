@@ -1,6 +1,7 @@
 import { Movie } from '../../../types';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { addToFavs, removeFromFavs, favOnMovies, unfavOnMovies } from '../../../store/slices';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import './MovieCard.css';
 
 interface Props {
@@ -28,7 +29,11 @@ export const MovieCard = ({ movie }: Props) => {
 
   return (
     <li className='movie-card'>
-      <img className='movie-poster' src={movie.posterURL} alt={movie.title} />
+      {
+        movie.posterURL
+          ? <img className='movie-poster' src={movie.posterURL} alt={movie.title} />
+          : <div className='movie-poster-backup'>Poster not available</div>
+      }
       <div className='card-text-container'>
         <span>{movie.title}</span>
         <span>{movie.releaseDate}</span>
@@ -37,7 +42,7 @@ export const MovieCard = ({ movie }: Props) => {
         className='fav-button'
         onClick={() => handleClick(movie)}
       >
-        {movie.fav ? '💖' : '❤️' }
+        {movie.fav ? <AiFillHeart /> : <AiOutlineHeart /> }
       </button>
     </li>
   );

@@ -1,0 +1,21 @@
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pagination .paginate-buttons-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.pagination .paginate-buttons-container .paginate-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #c24848;
+}

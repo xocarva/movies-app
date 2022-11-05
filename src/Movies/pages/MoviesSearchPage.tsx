@@ -1,27 +1,48 @@
 import { useEffect } from 'react';
 import { Loading } from '../../components/Loading';
-import { SearchBar, MoviesGrid, Oops } from '../components';
+import { SearchBar, MoviesGrid, Oops, Pagination } from '../components';
 import { useAppDispatch, useAppSelector, useQuery } from '../../hooks';
-import { fetchMoviesByText } from '../../store/slices';
+import { emptyMovies, fetchMoviesByText } from '../../store/slices';
 
 export const MoviesSearchPage = () => {
 
-  const query = useQuery();
   const dispatch = useAppDispatch();
-  const { movies, status } = useAppSelector(state => state.movies);
+  const { pageQuery, textQuery, completeQuery } = useQuery();
+  const { movies, status, moviesPage, moviesTotalPages } = useAppSelector(state => state.movies);
 
   useEffect(() => {
-    if (query) dispatch(fetchMoviesByText(query));
-  }, [dispatch, query]);
+    dispatch(emptyMovies());
+    if (textQuery) dispatch(fetchMoviesByText(completeQuery));
+  }, [dispatch, textQuery, completeQuery]);
 
   return (
     <main>
       <SearchBar />
-      { status === 'success' && movies.length > 0 && <MoviesGrid movies={movies} /> }
+      <Pagination
+        moviesPage={moviesPage}
+        moviesTotalPages={moviesTotalPages}
+        pageQuery={pageQuery}
+        textQuery={textQuery}
+      />
+      {
+        status === 'success'
+          && movies.length > 0
+          && <MoviesGrid movies={movies} />
+      }
       { status === 'failed' && <Oops /> }
       { status === 'loading' && <Loading />}
-      { status !== 'loading' && movies.length === 0 && !query && <div>Search something!</div> }
-      { status !== 'loading' && movies.length === 0 && query && <div>No results found for '{query}'</div> }
+      {
+        status !== 'loading'
+          && movies.length === 0
+          && !textQuery
+          && <div>Search something!</div>
+      }
+      {
+        status !== 'loading'
+          && movies.length === 0
+          && textQuery
+          && <div>No results found for '{textQuery}'</div>
+      }
     </main>
   );
 }
