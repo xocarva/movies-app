@@ -42,16 +42,33 @@ export const moviesSlice = createSlice({
       status: ''
   },
   reducers: {
-    addFav: (state, action) => {
+    addToFavs: (state, action) => {
       state.favs = [ ...state.favs, {...action.payload, fav:true} ];
       setOnLocalStorage('movies', state.favs);
     },
-    removeFav: (state, action) => {
+    removeFromFavs: (state, action) => {
       state.favs = state.favs.filter(
         (movie) => movie.id !== action.payload.id
       );
       setOnLocalStorage('movies', state.favs);
     },
+    emptyMovies: (state) => {
+      state.movies = [];
+    },
+    favOnMovies: (state, action) => {
+      state.movies = state.movies.map(movie => {
+        return action.payload.id === movie.id
+          ? { ...movie, fav: true }
+          : movie
+      });
+    },
+    unfavOnMovies: (state, action) => {
+      state.movies = state.movies.map(movie => {
+        return action.payload.id === movie.id
+          ? { ...movie, fav: false }
+          : movie
+      });
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -68,4 +85,4 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { addFav, removeFav } = moviesSlice.actions;
+export const { addToFavs, removeFromFavs, emptyMovies, favOnMovies, unfavOnMovies } = moviesSlice.actions;

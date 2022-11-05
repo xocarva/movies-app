@@ -1,6 +1,6 @@
 import { Movie } from '../../../types';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import { addFav, removeFav } from '../../../store/slices';
+import { addToFavs, removeFromFavs, favOnMovies, unfavOnMovies } from '../../../store/slices';
 import './MovieCard.css';
 
 interface Props {
@@ -11,12 +11,19 @@ export const MovieCard = ({ movie }: Props) => {
 
   const dispatch = useAppDispatch();
 
+  const addNewFavouriteMovie = (movie: Movie): void => {
+    dispatch(addToFavs(movie));
+    dispatch(favOnMovies(movie));
+  }
+
+  const removeFromFavouritesMovies = (movie: Movie): void => {
+    dispatch(removeFromFavs(movie));
+    dispatch(unfavOnMovies(movie));
+  }
+
   const handleClick = (movie:Movie) => {
-    if(movie.fav) {
-      dispatch(removeFav(movie));
-    } else {
-      dispatch(addFav(movie));
-    }
+    if (movie.fav) removeFromFavouritesMovies(movie);
+    else addNewFavouriteMovie(movie);
   }
 
   return (
