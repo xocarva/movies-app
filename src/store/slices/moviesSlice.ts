@@ -20,11 +20,12 @@ export const fetchMoviesByText = createAsyncThunk(
     const movies: Movie[] = data.results.map((movieFromApi: MovieResponseFromApi) => {
       const favs = getFromLocalStorage('movies');
       const isFav = !!favs.find(movie => movie.id === movieFromApi.id);
+
       const movie: Movie = {
         id: movieFromApi.id,
         title: movieFromApi.original_title,
         posterURL: `https://image.tmdb.org/t/p/original${movieFromApi.poster_path}`,
-        releaseDate: movieFromApi.release_date.split('').reverse().join(''),
+        releaseDate: movieFromApi.release_date,
         fav: isFav
       }
       return movie;

@@ -1,3 +1,3 @@
 
 export * from './HomePage';
-export * from './OopsPage';
+export * from './NotFoundPage/NotFoundPage';

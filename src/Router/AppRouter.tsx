@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { FavsPage, MoviesSearchPage } from '../Movies/pages';
-import { HomePage, OopsPage } from '../pages';
+import { HomePage, NotFoundPage } from '../pages';
 
 export const AppRouter = () => {
   return (
@@ -8,7 +8,7 @@ export const AppRouter = () => {
       <Route path='/' element={<HomePage />}/>
       <Route path='/search/' element={<MoviesSearchPage />}/>
       <Route path='/fav/' element={<FavsPage />}/>
-      <Route path='/*' element={<OopsPage />}/>
+      <Route path='/*' element={<NotFoundPage />}/>
     </Routes>
   );
 }

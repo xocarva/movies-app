@@ -1,0 +1,25 @@
+
+.home-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  height: 100%;
+  width: 80%;
+}
+.menu-option {
+  color: white;
+  background-color: #c24848;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(15vw + 15vh + .5vmin);
+  width: calc(15vw + 15vh + .5vmin);
+  font-size: calc(1.2vw + 1.2vh + .5vmin);
+}
+
+.menu-option:hover {
+  background-color: #812424;
+  cursor: pointer;
+}

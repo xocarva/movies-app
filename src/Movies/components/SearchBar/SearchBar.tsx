@@ -25,7 +25,7 @@ export const SearchBar = () => {
     <form className='search-bar' onSubmit={handleSubmit}>
       <input
         className='search-input'
-        placeholder='Search movies'
+        placeholder='Movie name'
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />

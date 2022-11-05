@@ -1,0 +1,12 @@
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+.not-found span {
+  font-size: calc(2.5vw + 2.5vh + .5vmin);
+  text-align: center;
+}
