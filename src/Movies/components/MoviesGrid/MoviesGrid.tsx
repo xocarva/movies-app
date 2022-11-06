@@ -1,5 +1,5 @@
-import { Movie } from "../../../types";
-import { MovieCard } from "../MovieCard/MovieCard";
+import { Movie } from '../../../types';
+import { MovieCard } from '../';
 import './MoviesGrid.css'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 export const MoviesGrid = ({ movies }: Props) => {
   return (
-    <ul className="grid">
+    <ul className='grid'>
       {
         movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { moviesAPI } from '../../../api/moviesAPI';
+import { moviesAPI } from '../../../api';
 import { getFromLocalStorage } from '../../../utils';
 import { Movie, MovieResponseFromApi } from '../../../types';
 

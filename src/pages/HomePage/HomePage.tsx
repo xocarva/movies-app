@@ -4,7 +4,7 @@ import './HomePage.css';
 
 export const HomePage = () => {
   return (
-    <main>
+    <main className='home-main'>
       <div className='home-menu'>
         <Link className='menu-option' to={'/search'}>Search movies</Link>
         <Link className='menu-option' to={'/fav'}>Check favourites</Link>

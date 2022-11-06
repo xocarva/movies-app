@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { Loading, Pagination } from '../../../components';
-import { Oops, MoviesGrid } from '../';
-import { fetchMoviesByText } from '../../../store/slices/movies/thunks';
+import { Oops, MoviesGrid } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { fetchMoviesByText } from '../../../store/slices/movies/thunks';
 
 interface Props {
   searchValue: string;
@@ -15,7 +14,7 @@ export const SearchResults = ({ searchValue }: Props) => {
 
   const { movies, status, moviesTotalPages } = useAppSelector(state => state.movies);
 
-  const [ page, setPage ] = useState(1);
+  const [ page, setPage ] = useState<number>(1);
 
   useEffect(() => {
     if(searchValue) {
@@ -32,7 +31,7 @@ export const SearchResults = ({ searchValue }: Props) => {
         movies.length > 0
           && searchValue
           &&  <Pagination
-                handleNext={() => {setPage(p => p + 1)}}
+                handleNext={() => setPage(p => p + 1)}
                 handlePrev={() => setPage(p => p - 1)}
                 page={page}
                 totalPages={moviesTotalPages}
@@ -50,7 +49,7 @@ export const SearchResults = ({ searchValue }: Props) => {
         movies.length > 0
           && searchValue
           &&  <Pagination
-                handleNext={() => {setPage(p => p + 1)}}
+                handleNext={() => setPage(p => p + 1)}
                 handlePrev={() => setPage(p => p - 1)}
                 page={page}
                 totalPages={moviesTotalPages}

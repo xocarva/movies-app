@@ -1,5 +1,5 @@
 import { Movie } from '../../../types';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../../hooks/';
 import { addToFavs, removeFromFavs } from '../../../store/slices';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import './MovieCard.css';

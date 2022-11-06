@@ -8,7 +8,7 @@ interface Props {
 
 export const SearchBar = ({ setSearchValue }: Props) => {
 
-  const [ inputValue, setInputValue ] = useState('');
+  const [ inputValue, setInputValue ] = useState<string>('');
 
   const handleSubmit = (e:any) => {
     e.preventDefault();

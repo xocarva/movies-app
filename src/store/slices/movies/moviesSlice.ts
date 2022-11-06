@@ -3,7 +3,6 @@ import { fetchMoviesByText } from './thunks';
 import { getFromLocalStorage, setOnLocalStorage } from '../../../utils';
 import { Movie } from '../../../types';
 
-
 const initialState = {
   movies: [] as Movie[],
   moviesPage: 1,

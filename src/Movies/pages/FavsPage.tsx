@@ -1,5 +1,5 @@
+import { MoviesGrid } from '../components/';
 import { useAppSelector } from '../../hooks';
-import { MoviesGrid } from '../components/MoviesGrid/MoviesGrid';
 import './FavsPage.css';
 
 export const FavsPage = () => {

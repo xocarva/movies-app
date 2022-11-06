@@ -4,7 +4,7 @@ export interface Movie {
   title: string;
   releaseDate: string;
   posterURL: string;
-  fav: boolean
+  fav: boolean;
 }
 
 export interface MovieResponseFromApi {

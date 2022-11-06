@@ -1,4 +1,3 @@
-
 import './Oops.css';
 
 export const Oops = () => {

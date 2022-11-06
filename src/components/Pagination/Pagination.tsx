@@ -1,5 +1,5 @@
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import "./Pagination.css";
+import './Pagination.css';
 
 interface Props {
   page: number;
@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const Pagination = ({ page, totalPages, handleNext, handlePrev }: Props) => {
-
   return (
     <div className="pagination">
       <span className="total-pages">{ page } / { totalPages }</span>
@@ -35,5 +34,4 @@ export const Pagination = ({ page, totalPages, handleNext, handlePrev }: Props) 
       </div>
     </div>
   );
-
 }

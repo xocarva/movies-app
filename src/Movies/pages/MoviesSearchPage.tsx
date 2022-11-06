@@ -3,7 +3,7 @@ import { SearchBar, SearchResults } from '../components';
 
 export const MoviesSearchPage = () => {
 
-  const [ searchValue, setSearchValue ] = useState('');
+  const [ searchValue, setSearchValue ] = useState<string>('');
 
   return (
     <main>
