@@ -3,9 +3,10 @@ import { moviesAPI } from '../../api';
 import { mapFromApiToMovie } from '../../../utils';
 import { ResponseFromMovieDBApi } from '../../../types';
 
-export const fetchMoviesByText = createAsyncThunk('movies/fetchByText', async (query: string) => {
+const QUERY_BASE_URL = process.env.REACT_APP_QUERY_BASE_URL
 
-    const { data } = await moviesAPI.get<ResponseFromMovieDBApi>(`search/movie?api_key=8f781d70654b5a6f2fa69770d1d115a3&query=${query}`);
+export const fetchMoviesByText = createAsyncThunk('movies/fetchByText', async (query: string) => {
+    const { data } = await moviesAPI.get<ResponseFromMovieDBApi>(`${QUERY_BASE_URL}${query}`);
     const movies = mapFromApiToMovie(data);
     const totalPages = data.total_pages;
     const page = data.page;
