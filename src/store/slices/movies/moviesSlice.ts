@@ -35,12 +35,6 @@ export const moviesSlice = createSlice({
           : movie
       });
       setOnLocalStorage('movies', state.favs);
-    },
-    emptyMovies: (state) => {
-      state.movies = initialState.movies;
-      state.moviesPage = initialState.moviesPage;
-      state.moviesTotalPages = initialState.moviesTotalPages;
-      state.status = initialState.status;
     }
   },
   extraReducers: (builder) => {
@@ -60,4 +54,4 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const {addToFavs, removeFromFavs, emptyMovies} = moviesSlice.actions;
+export const {addToFavs, removeFromFavs} = moviesSlice.actions;

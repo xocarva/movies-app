@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.pagination .total-pages{
+  text-align: center;
+}
+
+.pagination .pagination-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.pagination .pagination-buttons button {
+    background: none;
+    border: none;
+    color: #c24848;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+

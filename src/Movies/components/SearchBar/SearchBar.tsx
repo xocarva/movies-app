@@ -1,24 +1,18 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks';
-import { emptyMovies } from '../../../store/slices';
 import './SearchBar.css';
 
-export const SearchBar = () => {
+interface Props {
+  searchValue: string;
+  setSearchValue: any;
+}
 
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+export const SearchBar = ({ setSearchValue }: Props) => {
+
   const [ inputValue, setInputValue ] = useState('');
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
-
-    if(inputValue) {
-      navigate(`?q=${inputValue}`);
-    } else {
-      dispatch(emptyMovies());
-      navigate('');
-    }
+    setSearchValue(inputValue.trim());
   };
 
   return (
