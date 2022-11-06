@@ -47,6 +47,16 @@ export const SearchResults = ({ searchValue }: Props) => {
           && <MoviesGrid movies={movies} />
       }
       {
+        movies.length > 0
+          && searchValue
+          &&  <Pagination
+                handleNext={() => {setPage(p => p + 1)}}
+                handlePrev={() => setPage(p => p - 1)}
+                page={page}
+                totalPages={moviesTotalPages}
+              />
+      }
+      {
         status === 'success'
         && movies.length === 0
         && searchValue
