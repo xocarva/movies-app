@@ -5,8 +5,8 @@ import './NavBar.css';
 export const NavBar = () => {
   return (
     <nav className='nav-bar'>
-      <Link to={'/search'} title='search'><FaSearch /></Link>
-      <Link to={'/fav'} title='favourites'><FaHeart /></Link>
+      <Link to={'/search'} title='search page'><FaSearch /></Link>
+      <Link to={'/fav'} title='favourites page'><FaHeart /></Link>
     </nav>
   );
 }

@@ -3,18 +3,31 @@
   width: 80%;
   max-width: 800px;
   margin: 20px auto;
+  display: flex;
+  gap: 1rem;
 }
 
 .search-bar .search-input {
-  width: 100%;
   padding: 10px;
   border-radius: 10px;
   outline: none;
   border: 2px solid #c24848;
+  flex-grow: 1;
 }
 
 .search-bar .search-input:focus {
   outline: none;
   border: 2px solid #c24848;
   box-shadow: 0 0 5px #c24848;
+}
+
+.search-bar .search-button {
+  background-color:#c24848;
+  color: whitesmoke;
+  font-weight: bold;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }

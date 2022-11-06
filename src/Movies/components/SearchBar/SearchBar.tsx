@@ -4,15 +4,17 @@ import './SearchBar.css';
 interface Props {
   searchValue: string;
   setSearchValue: any;
+  setPage: any;
 }
 
-export const SearchBar = ({ setSearchValue }: Props) => {
+export const SearchBar = ({ setSearchValue, setPage }: Props) => {
 
   const [ inputValue, setInputValue ] = useState<string>('');
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
     setSearchValue(inputValue.trim());
+    setPage(1);
   };
 
   return (
@@ -23,6 +25,7 @@ export const SearchBar = ({ setSearchValue }: Props) => {
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
+      <button className='search-button' title='search'>Go!</button>
     </form>
   );
 }
