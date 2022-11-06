@@ -12,7 +12,7 @@ export const MovieCard = ({ movie }: Props) => {
 
   const dispatch = useAppDispatch();
 
-  const handleClick = (movie:Movie) => {
+  const handleClick = (movie:Movie): void => {
     if (movie.fav) dispatch(removeFromFavs(movie));
     else dispatch(addToFavs(movie));
   }

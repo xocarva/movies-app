@@ -4,8 +4,8 @@ import './Pagination.css';
 interface Props {
   page: number;
   totalPages: number;
-  handleNext: any;
-  handlePrev: any;
+  handleNext: () => void;
+  handlePrev: () => void;
 }
 
 export const Pagination = ({ page, totalPages, handleNext, handlePrev }: Props) => {

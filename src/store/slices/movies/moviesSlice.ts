@@ -3,11 +3,20 @@ import { fetchMoviesByText } from './thunks';
 import { getFromLocalStorage, setOnLocalStorage } from '../../../utils';
 import { Movie } from '../../../types';
 
-const initialState = {
-  movies: [] as Movie[],
+
+interface MovieSliceState {
+  movies: Movie[];
+  moviesPage: number;
+  moviesTotalPages: number;
+  favs: Movie[];
+  status: string;
+}
+
+const initialState: MovieSliceState = {
+  movies: [],
   moviesPage: 1,
   moviesTotalPages: 1,
-  favs: getFromLocalStorage('movies') as Movie[],
+  favs: getFromLocalStorage('movies'),
   status: ''
 }
 

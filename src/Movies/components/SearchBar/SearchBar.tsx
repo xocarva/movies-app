@@ -3,18 +3,18 @@ import './SearchBar.css';
 
 interface Props {
   searchValue: string;
-  setSearchValue: any;
-  setPage: any;
+  handleSetSearchValue: (value: string) => void;
+  handleSetPage: (value: number) => void;
 }
 
-export const SearchBar = ({ setSearchValue, setPage }: Props) => {
+export const SearchBar = ({ handleSetSearchValue, handleSetPage }: Props) => {
 
   const [ inputValue, setInputValue ] = useState<string>('');
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSearchValue(inputValue.trim());
-    setPage(1);
+    handleSetSearchValue(inputValue.trim());
+    handleSetPage(1);
   };
 
   return (

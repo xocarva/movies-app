@@ -5,10 +5,10 @@ export const Footer = () => {
     <footer>
       <span>
         <a
-          href="https://xoancarneiro.com"
-          target="_blank"
-          rel="noreferrer noopener"
-          title="xoancarneiro.com"
+          href='https://xoancarneiro.com'
+          target='_blank'
+          rel='noreferrer noopener'
+          title='xoancarneiro.com'
         >
           Xoán Carneiro
         </a>

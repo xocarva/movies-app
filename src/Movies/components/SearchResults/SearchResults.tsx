@@ -7,10 +7,10 @@ import { fetchMoviesByText } from '../../../store/slices/movies/thunks';
 interface Props {
   searchValue: string;
   page: number;
-  setPage: any;
+  handleSetPage: (page:number) => void;
 }
 
-export const SearchResults = ({ searchValue, page, setPage }: Props) => {
+export const SearchResults = ({ searchValue, page, handleSetPage }: Props) => {
 
   const dispatch = useAppDispatch();
 
@@ -25,14 +25,20 @@ export const SearchResults = ({ searchValue, page, setPage }: Props) => {
 
   return (
     <>
-      { searchValue && movies.length > 0 && <span>results for "{searchValue}"</span> }
+      {
+        searchValue
+          && movies.length > 0
+          && status !== 'failed'
+          && <span>results for "{searchValue}"</span>
+      }
       { !searchValue && <span>Search something!</span> }
       {
         movies.length > 0
+          && status !== 'failed'
           && searchValue
           &&  <Pagination
-                handleNext={() => setPage(page + 1)}
-                handlePrev={() => setPage(page - 1)}
+                handleNext={() => handleSetPage(page + 1)}
+                handlePrev={() => handleSetPage(page - 1)}
                 page={page}
                 totalPages={moviesTotalPages}
               />
@@ -47,10 +53,11 @@ export const SearchResults = ({ searchValue, page, setPage }: Props) => {
       }
       {
         movies.length > 0
+          && status !== 'failed'
           && searchValue
           &&  <Pagination
-                handleNext={() => setPage(page + 1)}
-                handlePrev={() => setPage(page - 1)}
+                handleNext={() => handleSetPage(page + 1)}
+                handlePrev={() => handleSetPage(page - 1)}
                 page={page}
                 totalPages={moviesTotalPages}
               />

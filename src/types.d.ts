@@ -1,10 +1,9 @@
 
-export interface Movie {
-  id: number;
-  title: string;
-  releaseDate: string;
-  posterURL: string;
-  fav: boolean;
+export interface ResponseFromMovieDBApi {
+  page: number;
+  results: MovieResponseFromApi[];
+  total_pages: number;
+  total_results: number;
 }
 
 export interface MovieResponseFromApi {
@@ -12,4 +11,12 @@ export interface MovieResponseFromApi {
   original_title: string;
   poster_path: string;
   release_date: string;
+}
+
+export interface Movie {
+  id: number;
+  title: string;
+  releaseDate: string;
+  posterURL: string;
+  fav: boolean;
 }

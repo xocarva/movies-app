@@ -6,17 +6,20 @@ export const MoviesSearchPage = () => {
   const [ searchValue, setSearchValue ] = useState<string>('');
   const [ page, setPage ] = useState<number>(1);
 
+  const handleSetSearchValue = (value: string) => setSearchValue(value);
+  const handleSetPage = (page: number) => setPage(page);
+
   return (
     <main>
       <SearchBar
         searchValue={searchValue}
-        setPage={setPage}
-        setSearchValue={setSearchValue}
+        handleSetPage={handleSetPage}
+        handleSetSearchValue={handleSetSearchValue}
       />
       <SearchResults
         searchValue={searchValue}
         page={page}
-        setPage={setPage}
+        handleSetPage={handleSetPage}
       />
     </main>
   );
