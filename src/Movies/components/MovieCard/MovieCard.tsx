@@ -1,6 +1,6 @@
 import { Movie } from '../../../types';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import { addToFavs, removeFromFavs, favOnMovies, unfavOnMovies } from '../../../store/slices';
+import { addToFavs, removeFromFavs } from '../../../store/slices';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import './MovieCard.css';
 
@@ -12,19 +12,9 @@ export const MovieCard = ({ movie }: Props) => {
 
   const dispatch = useAppDispatch();
 
-  const addNewFavouriteMovie = (movie: Movie): void => {
-    dispatch(addToFavs(movie));
-    dispatch(favOnMovies(movie));
-  }
-
-  const removeFromFavouritesMovies = (movie: Movie): void => {
-    dispatch(removeFromFavs(movie));
-    dispatch(unfavOnMovies(movie));
-  }
-
   const handleClick = (movie:Movie) => {
-    if (movie.fav) removeFromFavouritesMovies(movie);
-    else addNewFavouriteMovie(movie);
+    if (movie.fav) dispatch(removeFromFavs(movie));
+    else dispatch(addToFavs(movie));
   }
 
   return (

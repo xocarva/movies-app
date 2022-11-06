@@ -4,42 +4,43 @@ import { getFromLocalStorage, setOnLocalStorage } from '../../../utils';
 import { Movie } from '../../../types';
 
 
+const initialState = {
+  movies: [] as Movie[],
+  moviesPage: 1,
+  moviesTotalPages: 1,
+  favs: getFromLocalStorage('movies') as Movie[],
+  status: ''
+}
+
 export const moviesSlice = createSlice({
   name: 'movies',
-  initialState: {
-      movies: [] as Movie[],
-      moviesPage: 1,
-      moviesTotalPages: 1,
-      favs: getFromLocalStorage('movies') as Movie[],
-      status: ''
-  },
+  initialState: initialState,
   reducers: {
     addToFavs: (state, action) => {
-      state.favs = [ ...state.favs, {...action.payload, fav:true} ];
+      state.favs = [ ...state.favs, { ...action.payload, fav:true } ];
+      state.movies = state.movies.map(movie => {
+        return action.payload.id === movie.id
+          ? { ...movie, fav: true }
+          : movie
+      });
       setOnLocalStorage('movies', state.favs);
     },
     removeFromFavs: (state, action) => {
       state.favs = state.favs.filter(
         (movie) => movie.id !== action.payload.id
       );
-      setOnLocalStorage('movies', state.favs);
-    },
-    emptyMovies: (state) => {
-      state.movies = [];
-    },
-    favOnMovies: (state, action) => {
-      state.movies = state.movies.map(movie => {
-        return action.payload.id === movie.id
-          ? { ...movie, fav: true }
-          : movie
-      });
-    },
-    unfavOnMovies: (state, action) => {
       state.movies = state.movies.map(movie => {
         return action.payload.id === movie.id
           ? { ...movie, fav: false }
           : movie
       });
+      setOnLocalStorage('movies', state.favs);
+    },
+    emptyMovies: (state) => {
+      state.movies = initialState.movies;
+      state.moviesPage = initialState.moviesPage;
+      state.moviesTotalPages = initialState.moviesTotalPages;
+      state.status = initialState.status;
     }
   },
   extraReducers: (builder) => {
@@ -59,10 +60,4 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const {
-  addToFavs,
-  removeFromFavs,
-  emptyMovies,
-  favOnMovies,
-  unfavOnMovies
-} = moviesSlice.actions;
+export const {addToFavs, removeFromFavs, emptyMovies} = moviesSlice.actions;

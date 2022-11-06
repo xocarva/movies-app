@@ -25,20 +25,24 @@ export const Pagination = ({ moviesTotalPages, moviesPage, textQuery, pageQuery 
     <div className='pagination'>
       {
         textQuery && <div className='paginate-buttons-container'>
-          { moviesPage > 1
+          {
+            moviesPage > 1
             && <button
                   className='paginate-button'
                   onClick={handlePrev}
                 >
                   <AiOutlineArrowLeft title='previous' />
-                </button>}
-          { moviesTotalPages > moviesPage
+                </button>
+          }
+          {
+            moviesTotalPages > moviesPage
               && <button
                     className='paginate-button'
                     onClick={handleNext}
                   >
                     <AiOutlineArrowRight title='next' />
-                  </button>}
+                  </button>
+          }
         </div>
       }
       {
