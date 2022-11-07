@@ -18,7 +18,7 @@ export const MovieCard = ({ movie }: Props) => {
   }
 
   return (
-    <li className='movie-card'>
+    <article className='movie-card'>
       {
         movie.posterURL
           ? <img className='movie-poster' src={movie.posterURL} alt={movie.title} />
@@ -34,6 +34,6 @@ export const MovieCard = ({ movie }: Props) => {
       >
         {movie.fav ? <AiFillHeart /> : <AiOutlineHeart /> }
       </button>
-    </li>
+    </article>
   );
 }
