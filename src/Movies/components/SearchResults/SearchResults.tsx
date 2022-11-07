@@ -67,7 +67,7 @@ export const SearchResults = ({ searchValue, page, handleSetPage }: Props) => {
         status === 'success'
         && movies.length === 0
         && searchValue
-        && <div>No results found for '{searchValue}'</div>
+        && <div>No results found for "{searchValue}"</div>
       }
     </>
   );
