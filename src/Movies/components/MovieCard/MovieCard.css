@@ -1,48 +1,64 @@
 
 .movie-card {
-  width: 20rem;
-  height: 20rem;
-  background-color: black;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  background-size: contain;
+  background-position: center;
+  height: 21rem;
+  width: 14rem;
+  transition: 0.5s ease;
+  overflow: hidden;
   position: relative;
 }
 
-.movie-card .movie-poster {
-  max-width: 50%;
-  max-height: 90%;
+.movie-card:hover:before {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.movie-card .movie-poster-backup {
-  max-width: 50%;
-  max-height: 90%;
-  color: var(--primary-color);
-  font-style: italic;
+.movie-card:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition: 0.5s ease;
 }
 
-.movie-card .card-text-container {
+.movie-details {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.2rem;
-  color: var(--primary-color);
+  text-align: center;
+  gap: 3rem;
 }
 
-.movie-card .card-text-container span {
-  padding: 0 5px;
-  text-align: center;
+.movie-details span{
+  color: var(--primary-color);
+  margin: 0.2rem;
+}
+
+.movie-card:hover > .movie-details {
+  visibility:visible;
 }
 
 .fav-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background: none;
-  color: var(--secondary-color);
   border: none;
+  color: var(--secondary-color);
   cursor: pointer;
+  visibility: hidden;
+}
+
+.movie-card:hover > .fav-button {
+  visibility:visible;
 }

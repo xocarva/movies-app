@@ -18,19 +18,21 @@ export const MovieCard = ({ movie }: Props) => {
   }
 
   return (
-    <article className='movie-card'>
-      {
-        movie.posterURL
-          ? <img className='movie-poster' src={movie.posterURL} alt={movie.title} />
-          : <div className='movie-poster-backup'>Poster not available</div>
-      }
-      <div className='card-text-container'>
+    <article
+      className='movie-card'
+      style={ movie.posterURL
+              ? { backgroundImage: `url(${movie.posterURL})` }
+              : { backgroundColor: 'black' }
+            }
+    >
+      <div className={`movie-details ${movie.posterURL ? 'hidden' : 'visible'}`}>
         <span>{movie.title}</span>
-        <span>{movie.releaseDate}</span>
+        <span>{movie.releaseDate || 'Release date not available'}</span>
       </div>
       <button
         className='fav-button'
         onClick={() => handleClick(movie)}
+        title='fav / unfav'
       >
         {movie.fav ? <AiFillHeart /> : <AiOutlineHeart /> }
       </button>

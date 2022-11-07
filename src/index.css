@@ -27,3 +27,11 @@ main {
   align-items: center;
   background-color: var(--main-background-color);
 }
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
