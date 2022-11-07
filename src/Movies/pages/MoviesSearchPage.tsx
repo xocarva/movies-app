@@ -8,6 +8,7 @@ export const MoviesSearchPage = () => {
 
   const handleSetSearchValue = (value: string) => setSearchValue(value);
   const handleSetPage = (page: number) => setPage(page);
+  // created to avoid sending original state management functions to children
 
   return (
     <main>

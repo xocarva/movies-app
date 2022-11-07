@@ -4,7 +4,7 @@ import './Pagination.css';
 interface Props {
   page: number;
   totalPages: number;
-  handleNext: () => void;
+  handleNext: () => void; //  this function typing should aloud to use the component in different contexts
   handlePrev: () => void;
 }
 

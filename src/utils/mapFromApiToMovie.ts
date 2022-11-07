@@ -1,10 +1,10 @@
 import { getFromLocalStorage } from './getFromLocalStorage';
 import { Movie, ResponseFromMovieDBApi } from '../types';
 
+// converts movie api data format to app data format
+
 export const mapFromApiToMovie = (data: ResponseFromMovieDBApi): Movie[] => {
-
   return data.results.map((movieFromApi) => {
-
     const favs = getFromLocalStorage('movies');
     const isFav = !!favs.find(movie => movie.id === movieFromApi.id);
     const movie: Movie = {
@@ -16,8 +16,6 @@ export const mapFromApiToMovie = (data: ResponseFromMovieDBApi): Movie[] => {
       releaseDate: movieFromApi.release_date,
       fav: isFav
     }
-
     return movie;
-
   });
 }

@@ -23,7 +23,7 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState: initialState,
   reducers: {
-    addToFavs: (state, action) => {
+    addToFavs: (state, action) => { //must update state and modify local storage
       state.favs = [ ...state.favs, { ...action.payload, fav:true } ];
       state.movies = state.movies.map(movie => {
         return action.payload.id === movie.id
@@ -32,7 +32,7 @@ export const moviesSlice = createSlice({
       });
       setOnLocalStorage('movies', state.favs);
     },
-    removeFromFavs: (state, action) => {
+    removeFromFavs: (state, action) => { //must update state and modify local storage
       state.favs = state.favs.filter(
         (movie) => movie.id !== action.payload.id
       );
