@@ -28,7 +28,7 @@ Genera la build en una carpeta del mismo nombre.
 
 ## Decisiones de diseño
 
-![Diseño](https://github.com/xocarva/movies-app/docs/images/folders.png "Diseño")
+![Diseño](https://github.com/xocarva/movies-app/blob/master/docs/images/folders.png "Diseño")
 
 La aplicación sigue un patrón que se repite desde lo más general hasta sus componentes más pequeños. En la raíz se encuentran aquellos elementos potencialmente útiles para toda la aplicación:
 
