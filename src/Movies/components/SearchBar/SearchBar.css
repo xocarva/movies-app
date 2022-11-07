@@ -11,19 +11,19 @@
   padding: 10px;
   border-radius: 10px;
   outline: none;
-  border: 2px solid #c24848;
+  border: 2px solid var(--secondary-color);
   flex-grow: 1;
 }
 
 .search-bar .search-input:focus {
   outline: none;
-  border: 2px solid #c24848;
-  box-shadow: 0 0 5px #c24848;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 0 5px var(--secondary-color);
 }
 
 .search-bar .search-button {
-  background-color:#c24848;
-  color: whitesmoke;
+  background-color:var(--secondary-color);
+  color: var(--primary-color);
   font-weight: bold;
   border: none;
   height: 50px;

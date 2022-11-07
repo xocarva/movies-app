@@ -7,7 +7,7 @@
   height: 100%;
 }
 .menu-option {
-  color: white;
+  color: var(--primary-color);
   background-color: #c24848;
   text-decoration: none;
   display: flex;
@@ -20,7 +20,7 @@
 }
 
 .menu-option:hover {
-  background-color: #812424;
+  background-color: var(--tertiary-color);
   cursor: pointer;
 }
 
@@ -37,18 +37,18 @@
     border-radius: 0;
     font-size: 1rem;
     padding: 3rem;
-    background-color: white;
-    color: #c24848;
-    border-top: 1px solid #c24848;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
   }
 
   .menu-option:last-child {
-    border-bottom: 1px solid #c24848;
+    border-bottom: 1px solid var(--secondary-color);
   }
 
   .menu-option:hover {
-    background-color: #812424;
-    color: white;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
     font-weight: bold;
   }
 }

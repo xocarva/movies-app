@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --primary-color: white;
+  --secondary-color: #c24848;
+  --tertiary-color: #812424;
+  --main-background-color: rgb(238, 238, 238);
+}
+
 #root {
   height: 100vh;
   display: flex;
@@ -18,6 +25,5 @@ main {
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--main-background-color);
 }
-

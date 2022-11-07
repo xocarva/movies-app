@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color:#c24848;
+  background-color: var(--secondary-color);
 }
 
 .header a {
@@ -13,5 +13,5 @@
 
 .header a h1 {
   font-size: 3.5rem;
-  color: white;
+  color: var(--primary-color);
 }

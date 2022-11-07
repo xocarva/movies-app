@@ -19,7 +19,7 @@
 .pagination .pagination-buttons button {
     background: none;
     border: none;
-    color: #c24848;
+    color: var(--secondary-color);
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;

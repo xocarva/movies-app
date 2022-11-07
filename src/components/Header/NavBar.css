@@ -5,13 +5,13 @@
 }
 
 .nav-bar a {
-  color:#c24848;
+  color: var(--secondary-color);
   font-weight: bold;
   text-decoration: none;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
