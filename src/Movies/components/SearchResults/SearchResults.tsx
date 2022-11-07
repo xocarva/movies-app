@@ -3,6 +3,7 @@ import { Loading, Pagination } from '../../../components';
 import { Oops, MoviesGrid } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { fetchMoviesByText } from '../../../store/slices/movies/thunks';
+import './SearchResults.css';
 
 interface Props {
   searchValue: string;
@@ -31,7 +32,7 @@ export const SearchResults = ({ searchValue, page, handleSetPage }: Props) => {
           && status !== 'failed'
           && <span>results for "{searchValue}"</span>
       }
-      { !searchValue && <span>Search something!</span> }
+      { !searchValue && <span className='no-search-message'>Search something!</span> }
       {
         movies.length > 0
           && status !== 'failed'
