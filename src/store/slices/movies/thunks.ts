@@ -1,7 +1,39 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getFromLocalStorage } from '../../../utils';
 import { moviesAPI } from '../../api';
-import { mapFromApiToMovie } from '../../../utils';
-import { ResponseFromMovieDBApi } from '../../../types';
+import { Movie } from '../../../types';
+
+interface ResponseFromMovieDBApi {
+  page: number;
+  results: MovieResponseFromApi[];
+  total_pages: number;
+  total_results: number;
+}
+
+interface MovieResponseFromApi {
+  id: number;
+  original_title: string;
+  poster_path: string;
+  release_date: string;
+}
+
+// converts movie api data format to app data format
+const mapFromApiToMovie = (data: ResponseFromMovieDBApi): Movie[] => {
+  return data.results.map((movieFromApi) => {
+    const favs = getFromLocalStorage('movies');
+    const isFav = !!favs.find(movie => movie.id === movieFromApi.id);
+    const movie: Movie = {
+      id: movieFromApi.id,
+      title: movieFromApi.original_title,
+      posterURL: movieFromApi.poster_path
+        ? `https://image.tmdb.org/t/p/original${movieFromApi.poster_path}`
+        : '',
+      releaseDate: movieFromApi.release_date,
+      fav: isFav
+    }
+    return movie;
+  });
+}
 
 const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
 
