@@ -1,10 +1,10 @@
 import { MemoryRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { HomePage } from '../../../pages';
 
 describe('test HomePage component', () => {
 
-  test('must match snapshot', () => {
+  test('should match snapshot', () => {
 
     const { container } = render(
       <MemoryRouter>
@@ -13,6 +13,38 @@ describe('test HomePage component', () => {
       );
 
     expect(container).toMatchSnapshot();
+
+  });
+
+  test('should render search link', () => {
+
+    const buttonText = 'Search movies';
+
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+      );
+
+    const searchLink = screen.getByTitle('search movies');
+
+    expect(searchLink).toHaveTextContent(buttonText);
+
+  });
+
+  test('should render favourites link', () => {
+
+    const buttonText = 'Check favourites';
+
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+      );
+
+    const searchLink = screen.getByTitle('check favourites');
+
+    expect(searchLink).toHaveTextContent(buttonText);
 
   });
 

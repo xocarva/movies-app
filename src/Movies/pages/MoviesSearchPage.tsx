@@ -13,7 +13,6 @@ export const MoviesSearchPage = () => {
   return (
     <main>
       <SearchBar
-        searchValue={searchValue}
         handleSetPage={handleSetPage}
         handleSetSearchValue={handleSetSearchValue}
       />

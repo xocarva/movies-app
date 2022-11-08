@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './SearchBar.css';
 
 interface Props {
-  searchValue: string;
   handleSetSearchValue: (value: string) => void;
   handleSetPage: (value: number) => void;
 }
