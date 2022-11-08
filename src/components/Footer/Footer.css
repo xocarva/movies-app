@@ -1,5 +1,6 @@
 
-footer {
+.main-footer {
+  grid-area: footer;
   color: var(--primary-color);
   background-color: var(--secondary-color);
   padding: 1.5rem;
@@ -10,14 +11,14 @@ footer {
   gap: 1rem;
 }
 
-footer span {
+.main-footer span {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-footer span a {
+.main-footer span a {
   color: var(--primary-color);
 }
 

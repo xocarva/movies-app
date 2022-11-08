@@ -2,7 +2,7 @@ import './Footer.css';
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer className='main-footer'>
       <span>
         <a
           href='https://xoancarneiro.com'

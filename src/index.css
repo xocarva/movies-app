@@ -16,11 +16,16 @@ body {
 
 #root {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid:
+    'header' auto
+    'main' 1fr
+    'footer' auto
+    / 1fr;
 }
 
 main {
+  grid-area: main;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
