@@ -50,7 +50,7 @@ describe('test SearchBar component', () => {
 
   test('should change input text', async () => {
 
-    const inputValue = 'The Matrix';
+    const inputValue: string = 'The Matrix';
 
     const user = userEvent.setup();
 
@@ -72,7 +72,7 @@ describe('test SearchBar component', () => {
 
   test('should trigger submit clicking the search button', async () => {
 
-    const inputValue = 'The Matrix';
+    const inputValue: string = 'The Matrix';
 
     const user = userEvent.setup();
 
@@ -96,7 +96,7 @@ describe('test SearchBar component', () => {
 
   test('should trigger submit pressing enter key', async () => {
 
-    const inputValue = 'The Matrix';
+    const inputValue: string = 'The Matrix';
 
     const user = userEvent.setup();
 
@@ -120,7 +120,7 @@ describe('test SearchBar component', () => {
 
   test('should set search value with trimmed input value', async () => {
 
-    const inputValue = ' The Matrix ';
+    const inputValue: string = ' The Matrix ';
 
     const user = userEvent.setup();
 

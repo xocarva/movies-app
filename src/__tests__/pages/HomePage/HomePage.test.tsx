@@ -18,7 +18,7 @@ describe('test HomePage component', () => {
 
   test('should render search link', () => {
 
-    const buttonText = 'Search movies';
+    const buttonText: string = 'Search movies';
 
     render(
       <MemoryRouter>
@@ -34,7 +34,7 @@ describe('test HomePage component', () => {
 
   test('should render favourites link', () => {
 
-    const buttonText = 'Check favourites';
+    const buttonText: string = 'Check favourites';
 
     render(
       <MemoryRouter>

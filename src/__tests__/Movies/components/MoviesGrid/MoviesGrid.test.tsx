@@ -1,5 +1,7 @@
 import { screen, render } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { MoviesGrid } from '../../../../Movies/components';
+import { store } from '../../../../store';
 import { Movie } from '../../../../types';
 
 describe('test MoviesGrid component', () => {
@@ -22,15 +24,15 @@ describe('test MoviesGrid component', () => {
       fav: false
     },
     {
-      id: 1,
-      title: 'Movie 1',
+      id: 3,
+      title: 'Movie 3',
       releaseDate: '2019-01-01',
       posterURL: 'http://psterurl.com/1242',
       fav: true
     },
     {
-      id: 3,
-      title: 'Movie 3',
+      id: 4,
+      title: 'Movie 4',
       releaseDate: '2020-02-01',
       posterURL: 'http://psterurl.com/1211',
       fav: false
@@ -51,6 +53,22 @@ describe('test MoviesGrid component', () => {
     render(<MoviesGrid movies={emptyMovies} />);
 
     expect(screen.queryByTitle('fav / unfav')).not.toBeInTheDocument();
+
+  });
+
+  test('should render the same amount of cards than movies length', () => {
+
+    const favButtonTitle: string = 'fav / unfav';
+
+    render(
+      <Provider store={store}>
+        <MoviesGrid movies={movies} />
+      </Provider>
+    );
+
+    const cardFavButtons = screen.getAllByTitle(favButtonTitle);
+
+    expect(cardFavButtons.length).toEqual(movies.length);
 
   });
 

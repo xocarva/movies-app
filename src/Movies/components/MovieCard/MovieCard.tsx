@@ -1,7 +1,7 @@
-import { Movie } from '../../../types';
 import { useAppDispatch } from '../../../hooks/';
 import { addToFavs, removeFromFavs } from '../../../store/slices';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { Movie } from '../../../types';
 import './MovieCard.css';
 
 interface Props {
@@ -19,6 +19,7 @@ export const MovieCard = ({ movie }: Props) => {
 
   return (
     <article
+      data-testid='movie-card'
       className='movie-card'
       style={ movie.posterURL
               ? { backgroundImage: `url(${movie.posterURL})` }
@@ -30,7 +31,7 @@ export const MovieCard = ({ movie }: Props) => {
         <span>{movie.releaseDate || 'Release date not available'}</span>
       </div>
       <button
-        className='fav-button'
+        className={`fav-button ${ movie.fav? 'faved' : 'unfaved' }`}
         onClick={() => handleClick(movie)}
         title='fav / unfav'
       >
