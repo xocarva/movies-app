@@ -3,7 +3,7 @@ import { fetchMoviesByText } from './thunks';
 import { getFromLocalStorage, setOnLocalStorage } from '../../../utils';
 import { Movie } from '../../../types';
 
-interface MovieSliceState {
+export interface MovieSliceState {
   movies: Movie[];
   moviesPage: number;
   moviesTotalPages: number;
