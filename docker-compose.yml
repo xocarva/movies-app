@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  movies-app:
+    container_name: movies
+    build: .
+    env_file: ./.env
+    ports:
+      - '$PORT:80'
